@@ -68,5 +68,5 @@ int main(){
 
 // not intuitive at all; definitely among the harder 1500 problems
 // the trick is to initialize the iterator of the for loop from n-2*k-1; by storing the sum of the last k elements in a separate container beforehand.
-// why n-2*k-1? because it's the last most index possible for our first k elements (which will happend when the max sum subarrays of k lengths are at the very last indexes
+// why n-2*k-1? because it's the last most index possible for our first k elements (which will happen when the max sum subarrays of k lengths are at the very last indexes
 // in a contiguous manner.
