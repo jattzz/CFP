@@ -35,12 +35,30 @@ int main(){
     ll t; cin>>t;
     while(t--){
         ll n; cin>>n;
+        n *= 2;
         vll v(n);
         for(auto &i: v) cin>>i;
-        ll mx = *max_element(v.begin(), v.end());
         sort(v.begin(), v.end());
-        cout<<mx+1<<" ";
-        for(auto i: v) cout<<i<<" ";
+        ll temp = v[n-1];
+        temp += v[n-2];
+        for(int i = 1; i<n-2; i+=2){
+            temp += (v[i]-v[i-1]);
+        }
+        cout<<v[n-1]<<" "<<temp<<" "<<v[n-2];
+        for(int i = 0; i<n-2; i++){
+            cout<<" "<<v[i];
+        }
         cout<<endl;
     }
 }
+
+
+// so basically we want to rearrange the given elements in a way that, we can determine the missing element with guarantee that it wont be a duplicate.
+// we are given 2*n elements; 
+// we have a1 = a2 - a3 + a4 - a5 + a6 - a7... + a2n - a2n+1;
+// we can rearrenge it to look like; 
+// a2n = a1 + (a3 - a2) + (a5 - a4) + (a7 - a6) + ...... + a2n+1;
+// now we just have to maximise a2n;
+// first we arrange the max two elements to a1 and a2n+1 (since they are getting directly added up), then, we can just have the difference of adjacent elements in 
+// our sorted vector added into temp variable that we'll be using to store the sum of a1 and a2n+1;
+// its guaranteed to pile up and be greater than any element in the array.
