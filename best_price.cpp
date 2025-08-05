@@ -66,3 +66,4 @@ int main(){
 
 // so instead the correct approach is to binary search to check how many positive reviews you can get, and how many negative reviews you can get, and then check whether the solution is feasible if you take 
 // only k negative value and then update it accordingly.
+// we are essentially checking whether the number of negative reviews we are taking are less than equal to k or not whilst making up for the remaining elements with positive reviews if possible.
