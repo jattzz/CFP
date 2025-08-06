@@ -49,3 +49,6 @@ int main(){
 }
 
 // pretty straightforward question, we just have to find the no. of instances where the curr digit was different from what we had in the string.
+// if the count was greater than equal to 3, then the res would be (cnt - 2 + n);
+// for cnt == 2; we have (cnt - 1 + n);
+// else just (cnt + n);
