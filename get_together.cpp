@@ -29,24 +29,15 @@ ll power(ll x, ull y){
     }
 }
 
-long double eps = 1e-7;
-
 bool canMeet(vector<pair<long double, long double>> v, long double mid){
-    pair<long double, long double> p;
-    p = {(v[0].first - mid*v[0].second), (v[0].first + mid*v[0].second)};
-    for(int i = 1; i<v.size(); i++){
-        long double temp1 = v[i].first - mid*v[i].second;
-        long double temp2 = v[i].first + mid*v[i].second;
-        // cout<<"-> ";
-        // cout<<p.first<<" "<<p.second<<" "<<temp1<<" "<<temp2<<" ";
-        if((((temp2>=p.first)&&(temp2<=p.second))||((temp1<=p.second)&&(temp1>=p.first))||((temp1<=p.first&&temp2>=p.second)))){
-            // cout<<"satisfies"<<endl;
-            continue;
-        }
-        // cout<<"doesnt satisfy"<<endl;
-        return false;
+    long double minr = INT_MAX, maxl = INT_MIN;
+    for(int i = 0; i<v.size(); i++){
+        long double left = v[i].first - mid*v[i].second;
+        long double right = v[i].first + mid*v[i].second;
+        minr = min(minr, right);
+        maxl = max(maxl, left);
     }
-    return true;
+    return ((minr - maxl)>=0);
 }
 
 int main(){
@@ -57,20 +48,9 @@ int main(){
     for(auto &i: v){
         cin>>i.first>>i.second;
     }
-    long double mnx = 1e9, mxx = -1e9;
-    for(auto i: v){
-        mnx = min(i.first, mnx);
-        mxx = max(i.first, mxx);
-    }
-    // cout<<mnx<<" "<<mxx<<endl;
-    long double low = 0, high = 1;
-    for(int i = 0; i<n; i++){
-        high = max(abs(mnx - v[i].first)/v[i].second, abs(mxx - v[i].first)/v[i].second);
-    }
-    // cout<<low<<" "<<high<<endl;
-    while(abs(high - low) >= eps){
+    long double low = 0, high = 2*1e9;
+    while((high - low)>=(1e-7)){
         long double mid = (low + high)/2;
-        // cout<<mid<<endl;
         if(canMeet(v, mid)){
             high = mid;
         }
@@ -81,4 +61,9 @@ int main(){
     cout<<fixed<<setprecision(15)<<high<<endl;
 }
 
-// still can't make it work
+
+// the binary search logic is simple, just searching for the optimal 't' value, (mid is t), the main logic part is in the boolean function;
+// so the way it works is, after a certain time t, each x will have a leftmost possible position and a rightmost posible position;
+// which are; (x-v.t) and (x+v.t) respectively;
+// what we'll do is we'll keep track of the minimum right value and the maximum left value;
+// if (minr - maxl) >= 0, (it will be possible for the correct time, since all segments will overlap), then it is possible for that certain 't'.
