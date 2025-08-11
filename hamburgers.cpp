@@ -67,5 +67,6 @@ int main(){
     cout<<(res + high)<<endl;
 }
 
-// intial approach was to not make the hamburgers from the available ingredients right away, and that leads to wrong answer on some edge cases, but also it's more logical to first use the initial ingredients;
+// intial approach was to not make the hamburgers from the available ingredients right away, and that leads to wrong answer on some edge cases;
+// but also it's more logical to first use the initial ingredients;
 // and only then apply binary search to determine wheter 'mid' no. of hamburgers can be made or not.
