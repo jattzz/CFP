@@ -76,7 +76,7 @@ int main(){
     solve();
 }
 
-// no idea how to do it using dp, instead solved it purely using logic.
-// if 8 or 0 exists in the string then directly return it.
+// no idea how to do it using dp, instead solved it purely using logic
+// if 8 or 0 exists in the string then directly return it
 // if theres an odd digit 'x', then for all the previously encountered odd digit 'y', add 'yx' into the possible no. as well
 // if we see encounter an even digit 'x', then for all possible numbers, we check whether adding x to their last place change their divisibility, else we add all x to the end of all possible odd numbers.
