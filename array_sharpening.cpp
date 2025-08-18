@@ -28,7 +28,6 @@ ll power(ll x, ull y){
         return x*temp*temp;
     }
 }
-
 void solve(){
     ll n; cin>>n;
     vll v(n);
