@@ -64,6 +64,7 @@ int main(){
     }
 }
 
+
 // from the comment part, its pretty obvious that if the element is greater than or equal to the minimum number that can be on that index, then it can be sharpenend
 // the minimum no. being min(i, n - 1 - i);
 // only edge case for even no. of elements is when both the mid values are eactly the minimum possible to bypass the constraint, if they are different then it is possible, else no.
