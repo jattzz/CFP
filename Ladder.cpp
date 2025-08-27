@@ -67,4 +67,5 @@ int main(){
 // iota(v.begin(), v.end(), 0); // will start from 0, 
 
 // had to look at the editorial for this, and found the most genius solution that works in linear time frame.
-// we keep track of the 
+// we keep track of the rightmost nonincreasing index for each index and the leftmost nondecreasing index for each index.
+// Now, for any given l and r, if the rightmost nonincreasing index is greater than or equal to the leftmost nondecreasing index, then it is possible, else No.
