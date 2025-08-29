@@ -32,14 +32,15 @@ ll power(ll x, ull y){
     }
 }
 
+#define M_PI 3.14159265358979323846
+
 void solve(){
     ll n; cin>>n;
     vector<pair<double, double>> coordinates(n);
     set<double> angles;
     for(auto &i: coordinates){
         cin>>i.first>>i.second;
-        double ar = atan2(i.second, i.first);
-        double deg = ar*(180.0/(M_PI));
+        double deg = (atan2(i.second, i.first))*(180.0/(M_PI));
         if((deg + 360)<360) angles.insert(deg + 360);
         else angles.insert(deg);
     }
