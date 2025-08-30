@@ -31,9 +31,7 @@ ll power(ll x, ull y){
         return x*temp*temp;
     }
 }
-
 #define M_PI 3.14159265358979323846
-
 void solve(){
     ll n; cin>>n;
     vector<pair<double, double>> coordinates(n);
