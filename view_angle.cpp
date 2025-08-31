@@ -64,7 +64,6 @@ int main(){
         solve();
     }
 }
-
 // we can just store all the different angle in a set (so that they are sorted), and then we just have to check each pair of adjacent angles
 // 0, 90, 115, 235, 359;
 // s,  1,   2,   3,   e;
