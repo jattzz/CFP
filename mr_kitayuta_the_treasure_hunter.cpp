@@ -39,7 +39,7 @@ int gems[m] = {0};
 int d;
 
 int solve(int curr, int lastJump){
-    int nextPossible = lastJump - (d - 250);
+    int nextPossible = lastJump - (d - 250);   // had to look at the editorial for this one, instead of being nextpossible, i think its max possible next jump.
     if(curr >= m) return 0;
     if(used[curr][nextPossible]) return dp[curr][nextPossible];
     used[curr][nextPossible] = true;
